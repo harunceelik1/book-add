@@ -20,7 +20,7 @@ class Book{
 const book = new Book(title,author,isbn);
 
 
-var btnEkle= (book)=> {
+const btnEkle= (book)=> {
             const list = document.getElementById('book-list');
             const row = document.createElement('tr');
             row.innerHTML=`
@@ -33,12 +33,12 @@ var btnEkle= (book)=> {
         }
 
 
-var clearFields =()=>{
+const clearFields =()=>{
     document.getElementById("title").value='';
     document.getElementById("author").value='';
     document.getElementById("isbn").value='';
 }
-var uyari =()=>{
+const uyari =()=>{
     if(title.value === "" || author.value ==="" || isbn.value ==="")
     {   
         alert('Lütfen kitap bilgilerini doldurunuz.', 'error');
