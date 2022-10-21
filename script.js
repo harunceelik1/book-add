@@ -27,7 +27,7 @@ var btnEkle= (book)=> {
                 <td>${book.title.value}</td>
                 <td>${book.author.value}</td>
                 <td>${book.isbn.value}</td>
-                <td><a href=""class="delete">X</a></td>
+                <td><i class="fa-solid fa-trash deneme"></i></td>
             `;
             list.appendChild(row);
         }
@@ -50,18 +50,11 @@ var uyari =()=>{
     }
 }
 
-function isNumber(evt) {
-    var iKeyCode = (evt.which) ? evt.which : evt.keyCode
-    if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
-        return false;
-    return true;
-} 
-
-
 document.getElementById("bookList").addEventListener("click",function(e){
     console.log(e.target.parentElement.parentElement)
-    if(e.target.className ==="delete"){
+    if(e.target.className ==="fa-solid fa-trash deneme"){
         e.target.parentElement.parentElement.remove();
     }
     e.preventDefault(); 
 });
+
