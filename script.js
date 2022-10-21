@@ -19,20 +19,20 @@ class Book{
 const book = new Book(title,author,isbn);
 
 
-class Ekle{
-    btnEkle(book) {
-        const list = document.getElementById('book-list');
-        const row = document.createElement('tr');
-        row.innerHTML=`
-            <td>${book.title.value}</td>
-            <td>${book.author.value}</td>
-            <td>${book.isbn.value}</td>
-            <td><a href="" class="delete">X</a></td>
-        `;
-        list.appendChild(row);  
-    }
-}
-let ekle= new Ekle();
+// class Ekle{
+//     btnEkle(book) {
+//         const list = document.getElementById('book-list');
+//         const row = document.createElement('tr');
+//         row.innerHTML=`
+//             <td>${book.title.value}</td>
+//             <td>${book.author.value}</td>
+//             <td>${book.isbn.value}</td>
+//             <td><a href="" class="delete">X</a></td>
+//         `;
+//         list.appendChild(row);  
+//     }
+// }
+// let ekle= new Ekle();
 
 var clearFields =()=>{
     document.getElementById("title").value='';
