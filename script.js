@@ -3,11 +3,12 @@ const author = document.getElementById("author");
 const isbn = document.getElementById("isbn");
 let button = document.querySelector("#submit");
 
-button.addEventListener("click",()=>{
+
+button.addEventListener("click",(e)=>{
     uyari();
+    e.preventDefault();
+    
 })
-
-
 
 class Book{
     constructor(title,author,isbn){
@@ -19,20 +20,18 @@ class Book{
 const book = new Book(title,author,isbn);
 
 
-// class Ekle{
-//     btnEkle(book) {
-//         const list = document.getElementById('book-list');
-//         const row = document.createElement('tr');
-//         row.innerHTML=`
-//             <td>${book.title.value}</td>
-//             <td>${book.author.value}</td>
-//             <td>${book.isbn.value}</td>
-//             <td><a href="" class="delete">X</a></td>
-//         `;
-//         list.appendChild(row);  
-//     }
-// }
-// let ekle= new Ekle();
+var btnEkle= (book)=> {
+            const list = document.getElementById('book-list');
+            const row = document.createElement('tr');
+            row.innerHTML=`
+                <td>${book.title.value}</td>
+                <td>${book.author.value}</td>
+                <td>${book.isbn.value}</td>
+                <td><a href=""class="delete">X</a></td>
+            `;
+            list.appendChild(row);
+        }
+
 
 var clearFields =()=>{
     document.getElementById("title").value='';
@@ -46,7 +45,7 @@ var uyari =()=>{
     }
     else
     {
-        ekle.btnEkle(book);
+        btnEkle(book);
         clearFields();     
     }
 }
@@ -57,13 +56,12 @@ function isNumber(evt) {
         return false;
     return true;
 } 
-document.querySelector("#book-form").addEventListener("click",btnDel);
-function btnDel(e){
-    if(e.target.className === 'delete'){
 
-        console.log(e.target);
-        target.parentElement.parentElement.remove();
+
+document.getElementById("bookList").addEventListener("click",function(e){
+    console.log(e.target.parentElement.parentElement)
+    if(e.target.className ==="delete"){
+        e.target.parentElement.parentElement.remove();
     }
-  
     e.preventDefault(); 
-}
+});

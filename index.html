@@ -14,20 +14,21 @@
     <form id="book-form">
         <div>
             <label for="title"><b>Title </b></label>
-            <input type="text"id="title" class="form-control" >   
+            <input type="text"id="title" class="form-control" placeholder="Title" >   
         </div>
         <div>
             <label for="author"><b>Author</b></label>
-            <input type="text"id="author" class="form-control">
+            <input type="text"id="author" class="form-control" placeholder="Author">
         </div>
         <div>
-            <label for="author"><b>ISBN</b></label>
-            <input type="text"id="isbn" class="form-control"  onkeypress="return isNumber(event)">
+            <label for="isbn"><b>ISBN</b></label>
+            <input type="text"id="isbn" class="form-control" placeholder="ISBN" onkeypress="return isNumber(event)">
         </div>
         <div>
+            <hr>
             <button type="button" class="btn btn-success form-control active" id="submit">Success</button>
         </div>
-        <table class="table table-hover">
+        <table class="table table-hover" id="bookList">
             <thead>
               <tr>
                 <th>Title</th>
