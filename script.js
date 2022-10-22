@@ -1,3 +1,5 @@
+import Book from "../book/islem.js";
+
 const title = document.getElementById("title");
 const author = document.getElementById("author");
 const isbn = document.getElementById("isbn");
@@ -10,13 +12,6 @@ button.addEventListener("click",(e)=>{
     
 })
 
-class Book{
-    constructor(title,author,isbn){
-        this.title = title
-        this.author = author
-        this.isbn = isbn
-    }
-}
 const book = new Book(title,author,isbn);
 
 
@@ -31,8 +26,6 @@ const btnEkle= (book)=> {
             `;
             list.appendChild(row);
         }
-
-
 const clearFields =()=>{
     document.getElementById("title").value='';
     document.getElementById("author").value='';
@@ -49,7 +42,6 @@ const uyari =()=>{
         clearFields();     
     }
 }
-
 document.getElementById("bookList").addEventListener("click",function(e){
     console.log(e.target.parentElement.parentElement)
     if(e.target.className ==="fa-solid fa-trash deneme"){
