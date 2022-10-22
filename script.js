@@ -13,8 +13,6 @@ button.addEventListener("click",(e)=>{
 })
 
 const book = new Book(title,author,isbn);
-
-
 const btnEkle= (book)=> {
             const list = document.getElementById('book-list');
             const row = document.createElement('tr');
@@ -34,19 +32,21 @@ const clearFields =()=>{
 const uyari =()=>{
     if(title.value === "" || author.value ==="" || isbn.value ==="")
     {   
-        alert('Lütfen kitap bilgilerini doldurunuz.', 'error');
+        alert('Lütfen kitap bilgilerini doldurunuz.');
     }
     else
     {
+        
         btnEkle(book);
         clearFields();     
+        alert('Ürün Eklendi.');
+
     }
 }
 document.getElementById("bookList").addEventListener("click",function(e){
-    console.log(e.target.parentElement.parentElement)
+    // console.log(e.target.parentElement.parentElement)        
     if(e.target.className ==="fa-solid fa-trash deneme"){
         e.target.parentElement.parentElement.remove();
     }
     e.preventDefault(); 
 });
-
