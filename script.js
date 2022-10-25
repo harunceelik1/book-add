@@ -17,10 +17,12 @@ const btnEkle= (book)=> {
             const list = document.getElementById('book-list');
             const row = document.createElement('tr');
             row.innerHTML=`
-                <td>${book.title.value}</td>
-                <td>${book.author.value}</td>
-                <td>${book.isbn.value}</td>
+                
+                <td class="table-list">${book.title.value}</td>
+                <td class="table-list">${book.author.value}</td>
+                <td class="table-list">${book.isbn.value}</td>
                 <td><i class="fa-solid fa-trash deneme"></i></td>
+                <td><i class="fa-solid fa-pen-to-square"></i></td> 
             `;
             list.appendChild(row);
         }
@@ -39,7 +41,6 @@ const uyari =()=>{
         
         btnEkle(book);
         clearFields();     
-        alert('Ürün Eklendi.');
 
     }
 }
@@ -50,3 +51,23 @@ document.getElementById("bookList").addEventListener("click",function(e){
     }
     e.preventDefault(); 
 });
+
+
+
+document.getElementById("book-list").addEventListener("click",update);
+
+
+function update(a){
+    let b = document.getElementsByClassName("table-list")
+    console.log(b)
+    let data = [].map.call(b, item => item.textContent);
+    console.log(data)
+
+    if(a.target.className === "fa-solid fa-pen-to-square")
+    {
+        document.getElementById("title").value = data[0];
+        document.getElementById("author").value= data[1];
+        document.getElementById("isbn").value=   data[2];
+    }
+
+}
