@@ -59,10 +59,14 @@ document.getElementById("book-list").addEventListener("click",update);
 
 function update(a){
     let selectedtr = a.target.parentElement.parentElement
+    button.classList.add("d-none");
 
+
+
+    title.focus();
     if(a.target.className === "fa-solid fa-pen-to-square")
     {
-      
+
         document.getElementById("title").value = selectedtr.cells[0].innerHTML;
         document.getElementById("author").value = selectedtr.cells[1].innerHTML;
         document.getElementById("isbn").value =  selectedtr.cells[2].innerHTML;
@@ -70,3 +74,18 @@ function update(a){
     }
 
 }
+
+let updateBtn = () => {
+
+    const bttn = document.querySelector(".button")
+    const row = document.createElement('tr');
+    row.innerHTML = `
+            <td width="1400">
+                <hr>
+                <button type="button" class="btn btn-success form-control active" id="submit" >Güncelle</button>
+            </td>
+    `;
+    bttn.appendChild(row);
+
+};
+
