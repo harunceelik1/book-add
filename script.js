@@ -58,16 +58,15 @@ document.getElementById("book-list").addEventListener("click",update);
 
 
 function update(a){
-    let b = document.getElementsByClassName("table-list")
-    console.log(b)
-    let data = [].map.call(b, item => item.textContent);
-    console.log(data)
+    let selectedtr = a.target.parentElement.parentElement
 
     if(a.target.className === "fa-solid fa-pen-to-square")
     {
-        document.getElementById("title").value = data[0];
-        document.getElementById("author").value= data[1];
-        document.getElementById("isbn").value=   data[2];
+      
+        document.getElementById("title").value = selectedtr.cells[0].innerHTML;
+        document.getElementById("author").value = selectedtr.cells[1].innerHTML;
+        document.getElementById("isbn").value =  selectedtr.cells[2].innerHTML;
+
     }
 
 }
