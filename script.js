@@ -66,7 +66,7 @@ function update(a){
         document.getElementById("title").value = selectedtr.cells[0].innerHTML;
         document.getElementById("author").value = selectedtr.cells[1].innerHTML;
         document.getElementById("isbn").value =  selectedtr.cells[2].innerHTML;
-
+        
     }
 
 }
