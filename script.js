@@ -4,6 +4,8 @@ const title = document.getElementById("title");
 const author = document.getElementById("author");
 const isbn = document.getElementById("isbn");
 let button = document.querySelector("#submit");
+let button_update = document.querySelector("#update");
+
 
 
 button.addEventListener("click",(e)=>{
@@ -22,7 +24,7 @@ const btnEkle= (book)=> {
                 <td class="table-list">${book.author.value}</td>
                 <td class="table-list">${book.isbn.value}</td>
                 <td><i class="fa-solid fa-trash deneme"></i></td>
-                <td><i class="fa-solid fa-pen-to-square"></i></td> 
+                <td><i class="fa-solid fa-pen-to-square" id="icon"></i></td> 
             `;
             list.appendChild(row);
         }
@@ -49,43 +51,38 @@ document.getElementById("bookList").addEventListener("click",function(e){
     if(e.target.className ==="fa-solid fa-trash deneme"){
         e.target.parentElement.parentElement.remove();
     }
+  
     e.preventDefault(); 
 });
 
 
 
 document.getElementById("book-list").addEventListener("click",update);
-
-
 function update(a){
     let selectedtr = a.target.parentElement.parentElement
-    button.classList.add("d-none");
-
-
-
+    console.log(selectedtr)
     title.focus();
     if(a.target.className === "fa-solid fa-pen-to-square")
     {
-
-        document.getElementById("title").value = selectedtr.cells[0].innerHTML;
-        document.getElementById("author").value = selectedtr.cells[1].innerHTML;
-        document.getElementById("isbn").value =  selectedtr.cells[2].innerHTML;
-        
+        button.classList.add("d-none");
+        button_update.classList.remove("d-none");
+        document.getElementById("title").value = selectedtr.children[0].textContent;
+        document.getElementById("author").value = selectedtr.children[1].textContent;
+        document.getElementById("isbn").value =  selectedtr.children[2].textContent;    
     }
+    const updateBtn =() => {
+        button.classList.remove("d-none");
+        button_update.classList.add("d-none");
 
+        selectedtr.children[0].textContent = document.getElementById("title").value;
+        selectedtr.children[1].textContent = document.getElementById("author").value;
+        selectedtr.children[2].textContent = document.getElementById("isbn").value;
+    }
+    
+        button_update.addEventListener("click",(e)=>{
+            updateBtn();
+      
+        })
 }
 
-let updateBtn = () => {
-
-    const bttn = document.querySelector(".button")
-    const row = document.createElement('tr');
-    row.innerHTML = `
-            <td width="1400">
-                <hr>
-                <button type="button" class="btn btn-success form-control active" id="submit" >Güncelle</button>
-            </td>
-    `;
-    bttn.appendChild(row);
-
-};
 
